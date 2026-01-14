@@ -1,0 +1,168 @@
+<i class="fa-regular fa-volume-xmark"></i> volume couper
+
+<i class="fa-light fa-volume-high"></i> volume activer
+
+<i class="fa-light fa-delete-left"></i> retour en arriere
+
+<i class="fa-solid fa-trash"></i> effacer
+
+<i class="fa-solid fa-lightbulb"></i> indice
+<i class="fa-solid fa-mortar-pestle"></i> melanger
+
+<i class="fa-light fa-repeat"></i> reload
+
+
+
+<i class="fa-light fa-hourglass-half"></i> sablier
+
+
+
+ <!-- Lettres -->
+          <div class="tuiles" aria-label="Lettres proposées">
+            <div class="tuile"><span class="tuile__lettre">A</span></div>
+            <div class="tuile"><span class="tuile__lettre">N</span></div>
+            <div class="tuile tuile--inactive"><span class="tuile__lettre">C</span></div>
+            <div class="tuile"><span class="tuile__lettre">T</span></div>
+            <div class="tuile"><span class="tuile__lettre">E</span></div>
+            <div class="tuile tuile--inactive"><span class="tuile__lettre">O</span></div>
+          </div>
+
+          <!-- Réponse -->
+          <div class="reponse" aria-label="Mot en cours">
+            <div class="reponse__ligne">
+              <span class="reponse__lettre reponse__lettre--pleine">O</span>
+              <span class="reponse__lettre reponse__lettre--pleine">C</span>
+              <span class="reponse__lettre">_</span>
+              <span class="reponse__lettre">_</span>
+              <span class="reponse__lettre">_</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="actions" aria-label="Actions">
+            <button class="actions__btn" type="button" aria-label="Mélanger">
+              <i class="fa-solid fa-mortar-pestle"></i>
+            </button>
+
+            <button class="actions__btn" type="button" aria-label="Indice">
+              <i class="fa-solid fa-lightbulb"></i>
+            </button>
+
+            <button class="actions__btn" type="button" aria-label="Effacer">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+/* =========================
+   TUILES
+========================= */
+.tuiles{
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+}
+
+.tuile{
+  width: 120px;
+  height: 92px;
+  background: url("assets/images/tilelettre.png") center / contain no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,.25));
+}
+
+.tuile__lettre{
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--rose);
+  transform: translateY(3px);
+}
+
+.tuile--inactive{
+  opacity: var(--op50);
+}
+
+/* =========================
+   REPONSE
+========================= */
+.reponse{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.reponse__ligne{
+  display: flex;
+  gap: 16px;
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--marron);
+  text-shadow: 0 8px 10px rgba(0,0,0,.18);
+}
+
+.reponse__lettre{
+  min-width: 52px;
+  text-align: center;
+  opacity: .6;
+}
+
+.reponse__lettre--pleine{
+  opacity: 1;
+}
+
+/* =========================
+   ACTIONS (Font Awesome)
+========================= */
+.actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 90px;
+  justify-content: center;
+}
+
+.actions__btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 44px;
+  color: var(--marron);
+
+  opacity: .85; /* base cohérente avec hover */
+  transition: transform .12s ease, opacity .12s ease;
+}
+
+.actions__btn:hover{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px){
+  .hud__ligne{ font-size: 26px; }
+
+  .titre{ font-size: 42px; }
+
+  .minuteur__texte{ font-size: 34px; }
+
+  /* si tu veux garder 2rem en mobile, supprime la ligne ci-dessous */
+  .niveau__texte{ font-size: 52px; }
+
+  .tuile{ width: 72px; height: 72px; }
+  .tuile__lettre{ font-size: 42px; }
+
+  .reponse__ligne{ font-size: 54px; }
+  .actions{ gap: 64px; }
+}
+
